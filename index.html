@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlockEarth — the real world, in blocks</title>
+  <meta name="description" content="Walk through any real neighbourhood on Earth as a 1:1 block world, generated live from OpenStreetMap." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%236fd36b'/%3E%3Crect y='5' width='16' height='11' fill='%2386603f'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud">
+    <div id="info" class="panel">
+      <div id="place">BlockEarth</div>
+      <div id="coords"></div>
+      <div id="look"></div>
+    </div>
+    <canvas id="minimap" width="176" height="176"></canvas>
+    <div id="crosshair"></div>
+    <div id="status" class="panel"></div>
+    <div id="hotbar"></div>
+    <div id="mode" class="panel"></div>
+    <div id="attrib">Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · Terrain: Mapzen / AWS Open Data</div>
+  </div>
+
+  <div id="menu">
+    <div class="card">
+      <h1>BLOCK<span>EARTH</span></h1>
+      <p class="tag">The real world at 1:1 scale — every street and building, rebuilt in blocks.</p>
+
+      <form id="search">
+        <input id="q" type="text" placeholder="Search any address, city or landmark…" autocomplete="off" />
+        <button type="submit">Go</button>
+      </form>
+      <div id="results"></div>
+
+      <div id="places"></div>
+      <div class="row">
+        <button id="home" class="ghost">Take me to my location</button>
+        <button id="resume" class="primary" hidden>Back to the world</button>
+      </div>
+
+      <div class="settings">
+        <label>Render distance <b id="rv"></b><input id="radius" type="range" min="3" max="16" step="1" /></label>
+        <label>Time of day <b id="tv"></b><input id="time" type="range" min="0" max="24" step="0.25" /></label>
+      </div>
+
+      <div class="keys">
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</span>
+        <span><kbd>Space</kbd> jump / up</span>
+        <span><kbd>Q</kbd> down</span>
+        <span><kbd>Shift</kbd> fast</span>
+        <span><kbd>F</kbd> fly / walk</span>
+        <span><kbd>Click</kbd> break · <kbd>Right-click</kbd> place</span>
+        <span><kbd>1</kbd>–<kbd>9</kbd> blocks</span>
+        <span><kbd>T</kbd> time · <kbd>M</kbd> map · <kbd>Esc</kbd> menu</span>
+      </div>
+      <p class="fine">Not affiliated with Mojang or Microsoft. Map data © OpenStreetMap contributors (ODbL).</p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
